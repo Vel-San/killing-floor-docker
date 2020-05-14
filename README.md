@@ -4,7 +4,7 @@ This is a dockerized version of a Killing-Floor 1 dedicated server
 
 ## Current (and future) variables
 
-```docker
+```Dockerfile
 # Used for building only - Steam Username
 ARG steamU=anonymous
 # Used for building only - Steam Password
