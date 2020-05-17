@@ -18,11 +18,10 @@ FROM debian:stretch-slim
 # Install dependencies and create steam user
 RUN apt-get update \
     && apt-get install --yes \
-        lib32stdc++6 \
+        lib32stdc++6 procps\
     && apt-get --yes clean autoclean autoremove \
     && rm -rf /var/lib/apt/lists/* \
     && useradd -m steam \
-    # WORKDIR does not respect user :(
     && su steam -c "mkdir -p /home/steam/servers/kf"
 
 # Copy KF1 from to the new directory
@@ -31,6 +30,7 @@ COPY --from=builder --chown=steam:steam /home/steam/servers/kf /home/steam/serve
 
 # Add scripts needed for entry point
 WORKDIR /home/steam/servers/kf/System
+COPY KillingFloor.ini KillingFloor.ini
 ADD kf1_functions.sh kf1_functions.sh
 ADD main main
 

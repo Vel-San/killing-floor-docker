@@ -6,9 +6,9 @@ source kf1_functions.sh
 
 # Generates .ini
 require_config
-#Optimize KF
+# Optimize KF
 optimize_kf
 # Loads custom config from vars
-# load_config
+load_config
 # Start Server
 launch
