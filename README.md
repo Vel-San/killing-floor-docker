@@ -28,21 +28,21 @@ ARG code=""
 
 ```bash
 # Map Name
-KF_MAP=""
+KF_MAP=
 # 1 Begginer, 2 Normal, 4 Hard, 5 Suicidal, 7 Hell On Earth
-KF_DIFFICULTY=""
+KF_DIFFICULTY=
 # 0 - 4 waves, 1 - 7 waves, 2 - 10 waves
-KF_GAME_LENGTH=""
+KF_GAME_LENGTH=
 # Server Name
-KF_SERVER_NAME=""
+KF_SERVER_NAME=
 # Admin Name
-KF_ADMIN_NAME=""
+KF_ADMIN_NAME=
 # WebAdmin Password
-KF_ADMIN_PASS=""
+KF_ADMIN_PASS=
 # Admin E-Mail
-KF_ADMIN_EMAIL=""
+KF_ADMIN_EMAIL=
 # Message Of The Day - Shows when someone joins the server
-KF_MOTD=""
+KF_MOTD=
 ```
 
 ## Build Command
