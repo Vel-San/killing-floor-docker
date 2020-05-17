@@ -42,7 +42,7 @@ redirect=""
 ## Build Command
 
 ```bash
-docker build -t vel-san/killing-floor --build-arg username=... --build-arg password=... --build-arg code=... .
+docker build -t vel-san/killing-floor --build-arg steamU=... --build-arg steamP=... --build-arg code=... .
 ```
 
 ## Run Command
