@@ -10,7 +10,7 @@ function run_docker(){
     cmd="docker run --rm -it --name kf1-docker "
     cmd+="$ports"
     cmd+="--env-file=env_file "
-    cmd+="vel-san/killing-floor"
+    cmd+="vel7an/kf1-docker"
     echo "$cmd"
     exec $cmd
 }
