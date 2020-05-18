@@ -39,6 +39,6 @@ ADD main main
 # COPY System /home/steam/servers/kf/
 
 # Expose needed ports
-EXPOSE 7707/udp 7708/udp 7717/udp 28852 8075/tcp 20560/udp
+EXPOSE 7707/udp 7708/udp 7717/udp 28852/udp 28852/tcp 8075/tcp 20560/udp
 # Do some magic!
 ENTRYPOINT ["/bin/bash", "main"]
