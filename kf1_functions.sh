@@ -76,7 +76,7 @@ function launch() {
 
     cmd="./ucc-bin server "
     cmd+="$KF_MAP.rom?game=KFmod.KFGameType?"
-    [[ -z "$KF_MUTATORS" ]] || cmd+="?Mutator=$KF_MUTATORS"
+    [[ -z "$KF_MUTATORS" ]] || cmd+="Mutator=$KF_MUTATORS?"
     cmd+="VACSecured=true?MaxPlayers=6 -nohomedir"
     echo "Running command: $cmd" > $0-cmd.log
     exec $cmd
