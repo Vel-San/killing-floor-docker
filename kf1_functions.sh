@@ -58,6 +58,7 @@ function load_config() {
     ## Now we edit the config files to set the config
     sed -i "s/ServerName=Killing Floor Server/ServerName=$KF_SERVER_NAME/g" KillingFloor.ini
     sed -i "s/KFGameLength=/KFGameLength=$KF_GAME_LENGTH/g" KillingFloor.ini
+    [[ -z "$KF_GAME_PASS" ]] || sed -i "s/GamePassword=/GamePassword=$KF_GAME_PASS/g" KillingFloor.ini
     sed -i "s/GameDifficulty=/GameDifficulty=$KF_DIFFICULTY/g" KillingFloor.ini
     sed -i "s/AdminName=/AdminName=$KF_ADMIN_NAME/g" KillingFloor.ini
     sed -i "s/AdminPassword=/AdminPassword=$KF_ADMIN_PASS/g" KillingFloor.ini
@@ -75,10 +76,7 @@ function launch() {
 
     cmd="./ucc-bin server "
     cmd+="$KF_MAP.rom?game=KFmod.KFGameType?"
-    # To be enabled later
-    # [[ -z "$KF_GAME_PASS" ]] || cmd+="GamePassword=$KF_GAME_PASS?"
-    # [[ -z "$KF_MUTATORS" ]] || cmd+="?Mutator=$KF_MUTATORS"
-
+    [[ -z "$KF_MUTATORS" ]] || cmd+="?Mutator=$KF_MUTATORS"
     cmd+="VACSecured=true?MaxPlayers=6 -nohomedir"
     echo "Running command: $cmd" > $0-cmd.log
     exec $cmd

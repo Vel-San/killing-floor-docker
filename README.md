@@ -35,6 +35,11 @@ KF_DIFFICULTY=
 KF_GAME_LENGTH=
 # Server Name
 KF_SERVER_NAME=
+# Game Password, Do not provide the parameter if you want no password
+KF_GAME_PASS=
+# Mutators to be enabled by default on server startup; sepereate by a Comma
+# And make sure to configure your System/ directory before building to add the mutators
+KF_MUTATORS=
 # Admin Name
 KF_ADMIN_NAME=
 # WebAdmin Password
@@ -47,7 +52,10 @@ KF_MOTD=
 
 ## Build Command
 
-Put your password inside the hyphons to avoid any errors from bash, e.g 'password'
+- Put your `password` inside the `hyphons` to avoid any errors from bash, e.g 'password'
+- Place any Maps or mutators inside `Maps & System` directory (*pre-configure them*)
+- Pre-configure `KillingFloor.ini` to your liking (in case you need to add custom mutators in ServerPackages or so)
+- Run the following command or use `build_docker` with the arguments
 
 ```bash
 docker build -t vel7an/kf1-docker --build-arg steamU=... --build-arg steamP=... --build-arg code=... .
