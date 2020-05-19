@@ -1,3 +1,4 @@
+![repo-size](https://img.shields.io/github/repo-size/vel-san/killing-floor-docker?label=Repo-Size&style=flat-square) ![commits](https://img.shields.io/github/commit-activity/m/vel-san/killing-floor-docker?label=Commits&style=flat-square) ![contrib](https://img.shields.io/github/contributors/vel-san/killing-floor-docker?label=Contributors&style=flat-square) ![release](https://img.shields.io/github/v/release/vel-san/killing-floor-docker?label=Release&style=flat-square)
 - [Docker-kf-1](#docker-kf-1)
   - [Current (and future) variables](#current-and-future-variables)
     - [Build Vars](#build-vars)
