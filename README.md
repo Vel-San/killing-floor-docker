@@ -12,6 +12,8 @@
 
 This is a dockerized version of a Killing-Floor 1 dedicated server
 
+Images can be found in [The Docker Hub](https://hub.docker.com/u/vel7an)
+
 ## Current (and future) variables
 
 ### Build Vars
