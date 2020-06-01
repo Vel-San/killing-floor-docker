@@ -40,6 +40,6 @@ ADD kf1_functions.sh kf1_functions.sh
 ADD main main
 
 # Expose needed ports
-EXPOSE 7707/udp 7708/udp 7717/udp 28852/udp 28852/tcp 8075/tcp 20560/udp
+EXPOSE 7707/udp 7708/udp 7717/udp 28852/udp 28852/tcp 8075/tcp 20560/udp 20560/tcp
 # Do some magic!
 ENTRYPOINT ["/bin/bash", "main"]

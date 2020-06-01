@@ -7,7 +7,8 @@ function run_docker(){
  -p 0.0.0.0:28852:28852/udp\
  -p 0.0.0.0:28852:28852/tcp\
  -p 0.0.0.0:8075:8075/tcp\
- -p 0.0.0.0:20560:20560/udp "
+ -p 0.0.0.0:20560:20560/udp\
+ -p 0.0.0.0:20560:20560/tcp "
     cmd="docker run --rm -it --name kf1-docker "
     cmd+="$ports"
     cmd+="--env-file=env_file "
