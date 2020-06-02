@@ -69,8 +69,7 @@ function load_config() {
     sed -i "s,RedirectToURL=,RedirectToURL=$KF_REDIRECT,g" KillingFloor.ini
     
     ############# MUTATORS RELATED REPLACEMENTS #############
-    # If you are using MapVote Handler Fix, uncomment the below command, make sure you already have the pre-configured
-    # map votings in the /System
+    # Don't forget to pre-configure mutators in /System
     sed -i "s/VotingHandlerType=xVoting.xVotingHandler/VotingHandlerType=KFMapVoteV2.KFVotingHandler/g" KillingFloor.ini
 }
 
