@@ -51,24 +51,31 @@ function load_config() {
     # Server Message Of The Day
     [[ -z "$KF_MOTD" ]] && export KF_MOTD=Welcome To My Server
 
-    # TODO
     # Server redirectURL to download hosted mods from
-    # [[ -z "$KF_REDIRECT" ]] && export KF_REDIRECT=http:\/\/www.skillzservers.com\/kf-redirect\/
+    [[ -z "$KF_REDIRECT" ]] && export KF_REDIRECT=http://www.skillzservers.com/kf-redirect/
 
-    ## Now we edit the config files to set the config
+    ## Edit KillingFloor.ini
+    ############# BASIC REPLACEMENTS #############
     sed -i "s/ServerName=Killing Floor Server/ServerName=$KF_SERVER_NAME/g" KillingFloor.ini
-    sed -i "s/KFGameLength=/KFGameLength=$KF_GAME_LENGTH/g" KillingFloor.ini
+    echo -e "[KFMod.KFGameType]\nKFGameLength=$KF_GAME_LENGTH" >> KillingFloor.ini
     [[ -z "$KF_GAME_PASS" ]] || sed -i "s/GamePassword=/GamePassword=$KF_GAME_PASS/g" KillingFloor.ini
-    sed -i "s/GameDifficulty=/GameDifficulty=$KF_DIFFICULTY/g" KillingFloor.ini
+    sed -i "/VotingHandlerType=xVoting.xVotingHandler/a GameDifficulty=$KF_DIFFICULTY" KillingFloor.ini
     sed -i "s/AdminName=/AdminName=$KF_ADMIN_NAME/g" KillingFloor.ini
     sed -i "s/AdminPassword=/AdminPassword=$KF_ADMIN_PASS/g" KillingFloor.ini
     sed -i "s/AdminEmail=/AdminEmail=$KF_ADMIN_EMAIL/g" KillingFloor.ini
     sed -i "s/MessageOfTheDay=/MessageOfTheDay=$KF_MOTD/g" KillingFloor.ini
-    sed -i "s/bVACSecured=False/bVACSecured=True/g" KillingFloor.ini
-    # TODO
-    # sed -i "s/RedirectToURL=/RedirectToURL=$KF_REDIRECT/g" KillingFloor.ini
-
-
+    sed -i "/VotingHandlerType=xVoting.xVotingHandler/a bVACSecured=True" KillingFloor.ini
+    sed -i "/VotingHandlerType=xVoting.xVotingHandler/a bAdminCanPause=True" KillingFloor.ini
+    sed -i "s,RedirectToURL=,RedirectToURL=$KF_REDIRECT,g" KillingFloor.ini
+    
+    ############# MUTATORS RELATED REPLACEMENTS #############
+    # If you have MaxPlayers or ServerColor enabled, uncomment the 2 below commands
+    # And don't forget to edit the config of these 2 mutators in the /System directory
+    # sed -i '/ServerActors=UWeb.WebServer/a ServerActors=ServerColor.ServerColorActor' KillingFloor.ini
+    # sed -i '/ServerActors=UWeb.WebServer/a ServerActors=KFMaxPlayers.KFMaxPlayers' KillingFloor.ini
+    # If you are using MapVote Handler Fix, uncomment the below command, make sure you already have the pre-configured
+    # map votings in the /System
+    sed -i "s/VotingHandlerType=xVoting.xVotingHandler/VotingHandlerType=KFMapVoteV2.KFVotingHandler/g" KillingFloor.ini
 }
 
 function launch() {
@@ -76,7 +83,7 @@ function launch() {
 
     cmd="./ucc-bin server "
     cmd+="$KF_MAP.rom?game=KFmod.KFGameType?"
-    [[ -z "$KF_MUTATORS" ]] || cmd+="Mutator=$KF_MUTATORS?"
+    [[ -z "$KF_MUTATORS" ]] || cmd+="mutator=$KF_MUTATORS?"
     cmd+="VACSecured=true?MaxPlayers=6 -nohomedir"
     echo "Running command: $cmd" > $0-cmd.log
     exec $cmd

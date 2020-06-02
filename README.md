@@ -6,13 +6,11 @@
   - [Build Command](#build-command)
   - [Run Command](#run-command)
     - [Start the server](#start-the-server)
-    - [Finalized RUN Command](#finalized-run-command)
+    - [Finalized RUN Command (if you are not using the bash mentioned above)](#finalized-run-command-if-you-are-not-using-the-bash-mentioned-above)
 
 # Docker-kf-1
 
 This is a dockerized version of a Killing-Floor 1 dedicated server
-
-Images can be found in [The Docker Hub](https://hub.docker.com/u/vel7an)
 
 ## Current (and future) variables
 
@@ -51,17 +49,19 @@ KF_ADMIN_PASS=
 KF_ADMIN_EMAIL=
 # Message Of The Day - Shows when someone joins the server
 KF_MOTD=
+# Redirect URL
+KF_REDIRECT=
 ```
 
 ## Build Command
 
 - Put your `password` inside the `hyphons` to avoid any errors from bash, e.g 'password'
 - Place any Maps or mutators inside `Maps & System` directory (*pre-configure them*)
-- Pre-configure `KillingFloor.ini` to your liking (in case you need to add custom mutators in ServerPackages or so)
+- ~~Pre-configure `KillingFloor.ini` to your liking (in case you need to add custom mutators in ServerPackages or so)~~ Removed for now, Check kf1_functions.sh for the supported enviroments that are edited inside the default KillingFloor.ini - later on I will add support for other complex changes
 - Run the following command or use `build_docker` with the arguments
 
 ```bash
-docker build -t vel7an/kf1-docker --build-arg steamU=... --build-arg steamP=... --build-arg code=... .
+docker build -t vel7an/kf1-docker --build-arg steamU=... --build-arg steamP='...' --build-arg code=... .
 ```
 
 ## Run Command
@@ -71,7 +71,7 @@ docker build -t vel7an/kf1-docker --build-arg steamU=... --build-arg steamP=... 
 - Edit `env_file` to your own custom vars
     >`bash run_docker.sh` or double click it!
 
-### Finalized RUN Command
+### Finalized RUN Command (if you are not using the bash mentioned above)
 
 ```bash
 docker run --rm -it --name kf1-docker -p 0.0.0.0:7707:7707/udp -p 0.0.0.0:7708:7708/udp -p 0.0.0.0:7717:7717/udp -p 0.0.0.0:28852:28852/udp -p 0.0.0.0:28852:28852/tcp -p 0.0.0.0:8075:8075/tcp -p 0.0.0.0:20560:20560/udp -p 0.0.0.0:20560:20560/tcp --env-file=env_file vel7an/kf1-docker
