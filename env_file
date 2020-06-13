@@ -1,0 +1,9 @@
+KF_MAP=KF-BioticsLab
+KF_DIFFICULTY=4
+KF_GAME_LENGTH=2
+KF_GAME_PASS=(pass)
+KF_SERVER_NAME='Killing Floor Server'
+KF_ADMIN_NAME=(name)
+KF_ADMIN_PASS=(pass)
+KF_ADMIN_EMAIL=(email)
+KF_MOTD=Welcome
