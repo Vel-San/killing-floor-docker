@@ -101,7 +101,6 @@ docker run -d --name kf1 \
         -e STEAM_USER=(user) \
         -e STEAM_PASSWORD=(pass) \
         -e STEAM_CODE=(code) \
-        -e KF_MAP=KF-BioticsLab \
         --env-file=env_file \
         kf1-docker
 ```
