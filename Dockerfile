@@ -5,7 +5,6 @@ ARG steamU=anonymous
 ARG steamP=""
 ARG code=""
 
-RUN echo "Your Credentials: $steamU // $steamP // $code"
 # Login to steam and download KF1
 RUN /home/steam/steamcmd/steamcmd.sh \
         +login $steamU $steamP $code \

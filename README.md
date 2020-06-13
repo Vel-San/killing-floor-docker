@@ -1,16 +1,6 @@
-![repo-size](https://img.shields.io/github/repo-size/vel-san/killing-floor-docker?label=Repo-Size&style=flat-square) ![contrib](https://img.shields.io/github/contributors/vel-san/killing-floor-docker?label=Contributors&style=flat-square) ![release](https://img.shields.io/github/v/release/vel-san/killing-floor-docker?label=Release&style=flat-square)
-- [Docker-kf-1](#docker-kf-1)
-  - [Current (and future) variables](#current-and-future-variables)
-    - [Build Vars](#build-vars)
-    - [Run Vars](#run-vars)
-  - [Build Command](#build-command)
-  - [Run Command](#run-command)
-    - [Start the server](#start-the-server)
-    - [Finalized RUN Command (if you are not using the bash mentioned above)](#finalized-run-command-if-you-are-not-using-the-bash-mentioned-above)
+# killing-floor-docker
 
-# Docker-kf-1
-
-This is a dockerized version of a Killing-Floor 1 dedicated server
+This is a fork of Vel-San/killing-floor-docker without custom maps and mutators.
 
 ## Current (and future) variables
 
