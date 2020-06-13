@@ -24,8 +24,6 @@ USER steam
 # Add scripts needed for entry point
 WORKDIR /home/steam/servers/kf/System
 # Copy Maps and Systems for customized mutators
-COPY Maps /home/steam/servers/kf/Maps
-COPY System /home/steam/servers/kf/System
 RUN pwd && ls
 
 # Needed scripts - DO NOT REMOVE
