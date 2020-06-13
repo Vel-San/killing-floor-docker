@@ -24,13 +24,13 @@ function load_config() {
     # Default Launch Map
     [[ -z "$KF_MAP" ]] && export KF_MAP=KF-BioticsLab
 
-    # 1, 2, 4, 5, 7
+    # 1 Beginner, 2 Normal, 4 Hard, 5 Suicidal, 7 HoE
     [[ -z "$KF_DIFFICULTY" ]] && export KF_DIFFICULTY=4
 
     # Setting this creates a private server
     [[ -z "$KF_GAME_PASS" ]] && export KF_GAME_PASS=""
 
-    # 0 - 4 waves, 1 - 7 waves, 2 - 10 waves
+    # 0 --> 4 waves, 1 --> 7 waves, 2 --> 10 waves
     [[ -z "$KF_GAME_LENGTH" ]] && export KF_GAME_LENGTH=2
 
     ################## SERVER SETTINGS ##################

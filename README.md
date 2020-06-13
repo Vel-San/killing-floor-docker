@@ -1,8 +1,12 @@
-# killing-floor-docker
+![repo-size](https://img.shields.io/github/repo-size/vel-san/killing-floor-docker?label=Repo-Size&style=flat-square) ![contrib](https://img.shields.io/github/contributors/vel-san/killing-floor-docker?label=Contributors&style=flat-square) ![release](https://img.shields.io/github/v/release/vel-san/killing-floor-docker?label=Release&style=flat-square)
 
-This is a fork of [Vel-San/killing-floor-docker](https://github.com/Vel-San/killing-floor-docker) with a few notable changes:
-- Server install is done at run time instead of build time. This keeps the docker image small and allows you to easily tweak the server files post-install using a docker volume.
-- Custom maps and mutators have been removed to provide a vanilla install. These customizations can be added post-install.
+- [killing-floor1-docker](#killing-floor1-docker)
+  - [Current (and future) variables](#current-and-future-variables)
+    - [Run Vars](#run-vars)
+  - [Build Command](#build-command)
+  - [Run Command](#run-command)
+
+# killing-floor1-docker
 
 ## Current (and future) variables
 
@@ -23,14 +27,14 @@ Use these vars to tweak the server settings when a container starts.
 KF_MAP=
 # 1 Begginer, 2 Normal, 4 Hard, 5 Suicidal, 7 Hell On Earth
 KF_DIFFICULTY=
-# 0 - 4 waves, 1 - 7 waves, 2 - 10 waves
+# 0 --> 4 waves, 1 --> 7 waves, 2 --> 10 waves
 KF_GAME_LENGTH=
 # Server Name
 KF_SERVER_NAME=
 # Game Password, Do not provide the parameter if you want no password
 KF_GAME_PASS=
 # Mutators to be enabled by default on server startup; sepereate by a Comma
-# And make sure to configure your System/ directory before building to add the mutators
+# Use docker volume to modify and edit your mutators/maps
 KF_MUTATORS=
 # Admin Name
 KF_ADMIN_NAME=
@@ -40,7 +44,7 @@ KF_ADMIN_PASS=
 KF_ADMIN_EMAIL=
 # Message Of The Day - Shows when someone joins the server
 KF_MOTD=
-# Redirect URL
+# Redirect URL, if not set, defaults to Skillzserver (Includes almost all KF1 Mods)
 KF_REDIRECT=
 ```
 
