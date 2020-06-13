@@ -1,6 +1,5 @@
 #!/bin/bash
 
-set -o xtrace
 # Source functions below
 source kf1_functions.sh
 

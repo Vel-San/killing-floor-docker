@@ -1,4 +1,3 @@
-
 function require_config() {
     # Generate INI files
     if [[ ! -f "KillingFloor.ini" ]]; then
@@ -8,7 +7,6 @@ function require_config() {
         killall ucc-bin-real
         ps aux
     fi
-
 }
 
 # Mandatory Changes to KillingFloor.ini / Optimisations
@@ -56,21 +54,17 @@ function load_config() {
 
     ## Edit KillingFloor.ini
     ############# BASIC REPLACEMENTS #############
-    sed -i "s/ServerName=Killing Floor Server/ServerName=$KF_SERVER_NAME/g" KillingFloor.ini
-    echo -e "[KFMod.KFGameType]\nKFGameLength=$KF_GAME_LENGTH" >> KillingFloor.ini
-    [[ -z "$KF_GAME_PASS" ]] || sed -i "s/GamePassword=/GamePassword=$KF_GAME_PASS/g" KillingFloor.ini
-    sed -i "/VotingHandlerType=xVoting.xVotingHandler/a GameDifficulty=$KF_DIFFICULTY" KillingFloor.ini
-    sed -i "s/AdminName=/AdminName=$KF_ADMIN_NAME/g" KillingFloor.ini
-    sed -i "s/AdminPassword=/AdminPassword=$KF_ADMIN_PASS/g" KillingFloor.ini
-    sed -i "s/AdminEmail=/AdminEmail=$KF_ADMIN_EMAIL/g" KillingFloor.ini
-    sed -i "s/MessageOfTheDay=/MessageOfTheDay=$KF_MOTD/g" KillingFloor.ini
-    sed -i "/VotingHandlerType=xVoting.xVotingHandler/a bVACSecured=True" KillingFloor.ini
-    sed -i "/VotingHandlerType=xVoting.xVotingHandler/a bAdminCanPause=True" KillingFloor.ini
-    sed -i "s,RedirectToURL=,RedirectToURL=$KF_REDIRECT,g" KillingFloor.ini
-    
-    ############# MUTATORS RELATED REPLACEMENTS #############
-    # Don't forget to pre-configure mutators in /System
-    sed -i "s/VotingHandlerType=xVoting.xVotingHandler/VotingHandlerType=KFMapVoteV2.KFVotingHandler/g" KillingFloor.ini
+    sed -i "s/ServerName=.*/ServerName=$KF_SERVER_NAME/g" KillingFloor.ini
+    grep -q "KFGameLength=" KillingFloor.ini && sed -i "s/KFGameLength=.*/KFGameLength=$KF_GAME_LENGTH/g" KillingFloor.ini || echo -e "[KFMod.KFGameType]\nKFGameLength=$KF_GAME_LENGTH" >> KillingFloor.ini
+    [[ -z "$KF_GAME_PASS" ]] || sed -i "s/GamePassword=.*/GamePassword=$KF_GAME_PASS/g" KillingFloor.ini
+    grep -q "GameDifficulty=" KillingFloor.ini && sed -i "s/GameDifficulty=.*/GameDifficulty=$KF_DIFFICULTY/g" KillingFloor.ini || sed -i "/VotingHandlerType=xVoting.xVotingHandler/a GameDifficulty=$KF_DIFFICULTY" KillingFloor.ini
+    sed -i "s/AdminName=.*/AdminName=$KF_ADMIN_NAME/g" KillingFloor.ini
+    sed -i "s/AdminPassword=.*/AdminPassword=$KF_ADMIN_PASS/g" KillingFloor.ini
+    sed -i "s/AdminEmail=.*/AdminEmail=$KF_ADMIN_EMAIL/g" KillingFloor.ini
+    sed -i "s/MessageOfTheDay=.*/MessageOfTheDay=$KF_MOTD/g" KillingFloor.ini
+    grep -q "bVACSecured=True" KillingFloor.ini || sed -i "/VotingHandlerType=xVoting.xVotingHandler/a bVACSecured=True" KillingFloor.ini
+    grep -q "bAdminCanPause=True" KillingFloor.ini || sed -i "/VotingHandlerType=xVoting.xVotingHandler/a bAdminCanPause=True" KillingFloor.ini
+    sed -i "s,RedirectToURL=.*,RedirectToURL=$KF_REDIRECT,g" KillingFloor.ini
 }
 
 function launch() {
