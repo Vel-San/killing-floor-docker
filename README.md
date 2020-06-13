@@ -1,21 +1,22 @@
 # killing-floor-docker
 
-This is a fork of Vel-San/killing-floor-docker without custom maps and mutators.
+This is a fork of [Vel-San/killing-floor-docker](https://github.com/Vel-San/killing-floor-docker) with a few notable changes:
+- Server install is done at run time instead of build time. This keeps the docker image small and allows you to easily tweak the server files post-install using a docker volume.
+- Custom maps and mutators have been removed to provide a vanilla install. These customizations can be added post-install.
 
 ## Current (and future) variables
 
-### Build Vars
+### Run Vars
 
-```Dockerfile
-# Used for building only - Steam Username
-ARG steamU=""
-# Used for building only - Steam Password
-ARG steamP=""
-# Used for building only - 2FA Code - Please try to put a code the was newly generated or it won't last untill the image is pulled
-ARG code=""
+When running a container for the first time, you will need to supply a steam login to install the server.
+
+```bash
+STEAM_USER=
+STEAM_PASSWORD=
+STEAM_CODE=
 ```
 
-### Run Vars
+Use these vars to tweak the server settings when a container starts.
 
 ```bash
 # Map Name
@@ -45,24 +46,36 @@ KF_REDIRECT=
 
 ## Build Command
 
-- Put your `password` inside the `hyphons` to avoid any errors from bash, e.g 'password'
-- Place any Maps or mutators inside `Maps & System` directory (*pre-configure them*)
-- ~~Pre-configure `KillingFloor.ini` to your liking (in case you need to add custom mutators in ServerPackages or so)~~ Removed for now, Check kf1_functions.sh for the supported enviroments that are edited inside the default KillingFloor.ini - later on I will add support for other complex changes
-- Run the following command or use `build_docker` with the arguments
-
 ```bash
-docker build -t vel7an/kf1-docker --build-arg steamU=... --build-arg steamP='...' --build-arg code=... .
+docker build -t kf1-docker
 ```
 
 ## Run Command
 
-### Start the server
-
-- Edit `env_file` to your own custom vars
-    >`bash run_docker.sh` or double click it!
-
-### Finalized RUN Command (if you are not using the bash mentioned above)
+Here's an example first run command. Replace the values in parens with your own values.
 
 ```bash
-docker run --rm -it --name kf1-docker -p 0.0.0.0:7707:7707/udp -p 0.0.0.0:7708:7708/udp -p 0.0.0.0:7717:7717/udp -p 0.0.0.0:28852:28852/udp -p 0.0.0.0:28852:28852/tcp -p 0.0.0.0:8075:8075/tcp -p 0.0.0.0:20560:20560/udp -p 0.0.0.0:20560:20560/tcp --env-file=env_file vel7an/kf1-docker
+docker run -d --name kf1 \
+        -p 0.0.0.0:7707:7707/udp \
+        -p 0.0.0.0:7708:7708/udp \
+        -p 0.0.0.0:7717:7717/udp \
+        -p 0.0.0.0:28852:28852/udp \
+        -p 0.0.0.0:28852:28852/tcp \
+        -p 0.0.0.0:8075:8075/tcp \
+        -p 0.0.0.0:20560:20560/udp \
+        -p 0.0.0.0:20560:20560/tcp \
+        -v (your server folder):/home/steam/servers/kf \
+        -e STEAM_USER=(user) \
+        -e STEAM_PASSWORD=(pass) \
+        -e STEAM_CODE=(code) \
+        -e KF_MAP=KF-BioticsLab \
+        -e KF_DIFFICULTY=4 \
+        -e KF_GAME_LENGTH=2 \
+        -e KF_GAME_PASS=(pass) \
+        -e KF_SERVER_NAME='Killing Floor Server' \
+        -e KF_ADMIN_NAME=(name) \
+        -e KF_ADMIN_PASS=(pass) \
+        -e KF_ADMIN_EMAIL=(email) \
+        -e KF_MOTD=Welcome \
+        kf1-docker
 ```
