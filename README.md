@@ -4,6 +4,7 @@
   - [Docker Run Variables](#docker-run-variables)
   - [Build Command](#build-command)
   - [Run Command](#run-command)
+  - [Useful docker commads](#useful-docker-commads)
 
 # killing-floor1-docker
 
@@ -11,7 +12,8 @@
 
 When running a container for the first time, you will need to supply a steam login to install the server
 
-- if you get password errors, just put your password in hyphons e.g 'Password_here'
+- If you get password errors, just put your password in hyphons e.g 'Password_here'
+- Make sure the code you provide (if you have 2FA enabled) is newly generated
 
 ```bash
 STEAM_USER=
@@ -122,3 +124,8 @@ docker run -d --name kf1 -p 0.0.0.0:7707:7707/udp -p 0.0.0.0:7708:7708/udp -p 0.
 ```
 
 </details>
+
+## Useful docker commads
+
+- Track installation/server setup after docker run command
+  - `docker logs --follow kf1-docker`
