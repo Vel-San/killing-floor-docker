@@ -47,7 +47,7 @@ KF_REDIRECT=
 ## Build Command
 
 ```bash
-docker build -t kf1-docker
+docker build -t kf1-docker .
 ```
 
 ## Run Command
