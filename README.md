@@ -1,4 +1,4 @@
-![repo-size](https://img.shields.io/github/repo-size/vel-san/killing-floor-docker?label=Repo-Size&style=flat-square) ![contrib](https://img.shields.io/github/contributors/vel-san/killing-floor-docker?label=Contributors&style=flat-square) ![release](https://img.shields.io/github/v/release/vel-san/killing-floor-docker?label=Release&style=flat-square)
+![repo-size](https://img.shields.io/github/repo-size/vel-san/killing-floor-docker?label=Repo-Size&style=flat-square) [![contrib](https://img.shields.io/github/contributors/vel-san/killing-floor-docker?label=Contributors&style=flat-square)](https://github.com/Vel-San/killing-floor-docker/graphs/contributors) [![release](https://img.shields.io/github/v/release/vel-san/killing-floor-docker?label=Release&style=flat-square)](https://github.com/Vel-San/killing-floor-docker/releases) [![Docker](https://img.shields.io/badge/Docker%20Hub-White--Listed%20Vanilla-Blue)](https://hub.docker.com/r/vel7an/kf1-docker)
 
 - [killing-floor1-docker](#killing-floor1-docker)
   - [Docker Run Variables](#docker-run-variables)
