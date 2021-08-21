@@ -8,6 +8,15 @@
 
 # killing-floor1-docker
 
+## READ BEFORE PROCEEDING
+
+OSX 💻 Users: If, for any reason, you are encountering "Operation not permitted" issues while running, make sure you do the following:
+
+1. In your Docker settings, disable/uncheck `Use gRPC FUSE for file sharing` and hit Restart to Apply changes
+2. If the above doesn't solve your issue, go to your Machine Settings > Security & Privacy > Give `Full Disk Usage` to Docker.app (If this still doesn't work, give your terminal as well)
+
+This should fix this issue 👍
+
 ## Docker Run Variables
 
 When running a container for the first time, you will need to supply a steam login to install the server
