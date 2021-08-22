@@ -34,9 +34,9 @@ if [[ ! -f "/home/steam/servers/kf/System/Core.u" ]]; then
   cp main.sh kf1_functions.sh /home/steam/servers/kf/System
 
   echo "#### Patching with latest Steam Libs to fix VAC/Server List ####"
-  cp /steamcmd/linux32/libtier0_s.so /home/steam/servers/kf/System/libtier0_s.so
-  cp /steamcmd/linux32/libvstdlib_s.so /home/steam/servers/kf/System/libvstdlib_s.so
-  cp /steamcmd/linux32/steamclient.so /home/steam/servers/kf/System/steamclient.so
+  cp /home/steam/steamcmd/linux32/libtier0_s.so /home/steam/servers/kf/System/libtier0_s.so
+  cp /home/steam/steamcmd/linux32/libvstdlib_s.so /home/steam/servers/kf/System/libvstdlib_s.so
+  cp /home/steam/steamcmd/linux32/steamclient.so /home/steam/servers/kf/System/steamclient.so
 fi
 
 cd /home/steam/servers/kf/System
