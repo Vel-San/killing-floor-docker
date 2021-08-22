@@ -8,9 +8,9 @@ RUN apt-get update \
         lib32stdc++6 procps
 USER steam
 
-# Needed scripts - DO NOT REMOVE
+# Move scripts
 WORKDIR /home/steam
-COPY --chown=steam *.sh ./
+COPY --chown=steam /scripts/*.sh ./
 RUN chmod +x *.sh
 RUN mkdir -p ./servers/kf
 
