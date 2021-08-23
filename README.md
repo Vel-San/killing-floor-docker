@@ -1,5 +1,6 @@
 ![repo-size](https://img.shields.io/github/repo-size/vel-san/killing-floor-docker?label=Repo-Size&style=flat-square) [![contrib](https://img.shields.io/github/contributors/vel-san/killing-floor-docker?label=Contributors&style=flat-square)](https://github.com/Vel-San/killing-floor-docker/graphs/contributors) [![release](https://img.shields.io/github/v/release/vel-san/killing-floor-docker?label=Release&style=flat-square)](https://github.com/Vel-San/killing-floor-docker/releases) [![Docker](https://img.shields.io/badge/Docker%20Hub-White--Listed%20Vanilla-Blue?style=flat-square)](https://hub.docker.com/r/vel7an/kf1-docker)
 
+[![Build & Deploy to Docker Hub](https://github.com/Vel-San/killing-floor-docker/actions/workflows/Build_Deploy.yml/badge.svg?branch=master)](https://github.com/Vel-San/killing-floor-docker/actions/workflows/Build_Deploy.yml)
 - [killing-floor1-docker](#killing-floor1-docker)
   - [READ BEFORE PROCEEDING](#read-before-proceeding)
   - [Docker Run Variables](#docker-run-variables)
