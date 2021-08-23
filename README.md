@@ -44,9 +44,6 @@ KF_GAME_LENGTH=
 KF_SERVER_NAME=
 # Game Password, Do not provide the parameter if you want no password
 KF_GAME_PASS=
-# Mutators to be enabled by default on server startup; sepereate by a Comma
-# Use docker volume to modify and edit your mutators/maps @todo Document this more for noobies
-KF_MUTATORS=
 # Admin Name
 KF_ADMIN_NAME=
 # WebAdmin Password
@@ -57,7 +54,7 @@ KF_ADMIN_EMAIL=
 KF_MOTD=
 # Redirect URL, if not set, defaults to Skillzserver (Includes almost all KF1 Mods)
 KF_REDIRECT=
-# List of your mutators, seperated by commas and NO spaces -- It is recommended to use MutLoader to load your muts
+# List of your mutators; seperated by commas and NO spaces -- It is recommended to use MutLoader to load your muts
 KF_MUTATORS=
 ```
 
