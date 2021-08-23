@@ -8,6 +8,7 @@ on:
   push:
     branches: [ master ]
     paths-ignore:
+      - '.github/**'
       - 'README.md'
       - 'CHANGELOG.md'
       - 'env_file'
@@ -15,6 +16,7 @@ on:
   pull_request:
     branches: [ master ]
     paths-ignore:
+      - '.github/**'
       - 'README.md'
       - 'CHANGELOG.md'
       - 'env_file'
