@@ -57,6 +57,8 @@ KF_ADMIN_EMAIL=
 KF_MOTD=
 # Redirect URL, if not set, defaults to Skillzserver (Includes almost all KF1 Mods)
 KF_REDIRECT=
+# List of your mutators, seperated by commas and NO spaces -- It is recommended to use MutLoader to load your muts
+KF_MUTATORS=
 ```
 
 ## Build Command
@@ -67,7 +69,7 @@ docker build -t kf1-docker .
 
 ## Run Command
 
-- Replace the values in parens with your own values
+- Replace the values in Parenthesis with your own values
 
 Config directly as env vars:
 
@@ -94,6 +96,8 @@ docker run -d --name kf1 \
         -e KF_ADMIN_PASS=(pass) \
         -e KF_ADMIN_EMAIL=(email) \
         -e KF_MOTD=Welcome \
+        -e KF_REDIRECT=(redirect) \
+        -e KF_MUTATORS=(mutators) \
         kf1-docker
 ```
 
@@ -101,7 +105,7 @@ docker run -d --name kf1 \
   <summary>Copy/Paste (CLICK ME)</summary>
 
 ```bash
-docker run -d --name kf1 -p 0.0.0.0:7707:7707/udp -p 0.0.0.0:7708:7708/udp -p 0.0.0.0:7717:7717/udp -p 0.0.0.0:28852:28852/udp -p 0.0.0.0:28852:28852/tcp -p 0.0.0.0:8075:8075/tcp -p 0.0.0.0:20560:20560/udp -p 0.0.0.0:20560:20560/tcp -v (your server folder):/home/steam/servers/kf -e STEAM_USER=(user) -e STEAM_PASSWORD=(pass) -e STEAM_CODE=(code) -e KF_MAP=KF-BioticsLab -e KF_DIFFICULTY=4 -e KF_GAME_LENGTH=2 -e KF_GAME_PASS=(pass) -e KF_SERVER_NAME='Killing Floor Server' -e KF_ADMIN_NAME=(name) -e KF_ADMIN_PASS=(pass) -e KF_ADMIN_EMAIL=(email) -e KF_MOTD=Welcome kf1-docker
+docker run -d --name kf1 -p 0.0.0.0:7707:7707/udp -p 0.0.0.0:7708:7708/udp -p 0.0.0.0:7717:7717/udp -p 0.0.0.0:28852:28852/udp -p 0.0.0.0:28852:28852/tcp -p 0.0.0.0:8075:8075/tcp -p 0.0.0.0:20560:20560/udp -p 0.0.0.0:20560:20560/tcp -v (your server folder):/home/steam/servers/kf -e STEAM_USER=(user) -e STEAM_PASSWORD=(pass) -e STEAM_CODE=(code) -e KF_MAP=KF-BioticsLab -e KF_DIFFICULTY=4 -e KF_GAME_LENGTH=2 -e KF_GAME_PASS=(pass) -e KF_SERVER_NAME='Killing Floor Server' -e KF_ADMIN_NAME=(name) -e KF_ADMIN_PASS=(pass) -e KF_ADMIN_EMAIL=(email) -e KF_MOTD=Welcome -e KF_REDIRECT=(redirect) -e KF_MUTATORS=(mutators) kf1-docker
 ```
 
 </details>
