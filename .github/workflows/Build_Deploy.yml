@@ -49,7 +49,7 @@ jobs:
           context: ./
           file: ./Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
-          push: false # If testing, set to false
+          push: true # If testing, set to false
           tags:  ${{ secrets.DOCKER_HUB_USERNAME }}/kf1-docker:latest
           cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/kf1-docker:latest
           cache-to: type=inline
