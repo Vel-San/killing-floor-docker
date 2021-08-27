@@ -2,7 +2,7 @@
 
 [![Build & Deploy to Docker Hub](https://github.com/Vel-San/killing-floor-docker/actions/workflows/Build_Deploy.yml/badge.svg?branch=master)](https://github.com/Vel-San/killing-floor-docker/actions/workflows/Build_Deploy.yml)
 
-[![](https://cache.gametracker.com/server_info/86.56.5.231:7707/b_560_95_1.png)](https://www.gametracker.com/server_info/86.56.5.231:7707/)
+[![](https://cache.gametracker.com/server_info/86.56.4.96:7707/b_560_95_1.png)](https://www.gametracker.com/server_info/86.56.4.96:7707/)
 
 - [killing-floor1-docker](#killing-floor1-docker)
   - [READ BEFORE PROCEEDING](#read-before-proceeding)
