@@ -22,8 +22,8 @@ on:
     - cron: '24 11 * * 2'
 
 jobs:
-  build:
-    name: Build
+  CI:Container-Scanner:
+    name: scanner
     runs-on: "ubuntu-18.04"
     steps:
       - name: Checkout code
