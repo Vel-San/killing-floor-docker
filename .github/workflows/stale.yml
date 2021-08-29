@@ -1,4 +1,4 @@
-name: Mark stale issues and pull requests
+name: Maintenance:Stale-Marker
 
 on:
   schedule:
