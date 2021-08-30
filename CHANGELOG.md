@@ -1,4 +1,8 @@
-# v3.8 ( August 30 - 2021 )
+# v3.9 ( August 30 - 2021 )
+
+- [feature] Added KF_SPECIMEN_EVENT_TYPE to control ZED skins based on special event types
+
+## v3.8 ( August 30 - 2021 )
 
 - [feature] Added KF_SPECTATORS to modify number of spectators in the server
 
