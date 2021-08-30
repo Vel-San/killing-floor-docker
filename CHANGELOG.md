@@ -1,8 +1,12 @@
-# v3.6 ( June 13 - 2020 )
+# v3.7 ( August 30 - 2021 )
 
-- Updated all scripts with better debugging
-- Updated docker image in docker hub (Increased in size, too)
-- Added some critical notes regarding OSX users
+- [feature] Added KF_SPECTATORS variable to modify number of spectators in the server
+
+## v3.6 ( August 21 - 2021 )
+
+- [misc] Updated all scripts with better debugging
+- [docker] Updated docker image in docker hub (Increased in size, too)
+- [documentation] Added some critical notes regarding OSX users
 
 ## v3.5 ( June 13 - 2020 )
 
