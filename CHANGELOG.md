@@ -1,6 +1,10 @@
-# v3.7 ( August 30 - 2021 )
+# v3.8 ( August 30 - 2021 )
 
-- [feature] Added KF_SPECTATORS variable to modify number of spectators in the server
+- [feature] Added KF_SPECTATORS to modify number of spectators in the server
+
+## v3.7 ( August 22 - 2021 )
+
+- [fix] Wrong paths for steam libs
 
 ## v3.6 ( August 21 - 2021 )
 
