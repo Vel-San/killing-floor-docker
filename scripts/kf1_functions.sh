@@ -53,6 +53,14 @@ function load_config() {
   # Spectators Count
   [[ -z "$KF_SPECTATORS" ]] && export KF_SPECTATORS=6
 
+  # Specimens event type/skins
+  # Select between the following:
+  # ET_None -- Default
+  # ET_SummerSideshow -- for the summer ZEDs
+  # ET_HillbillyHorror -- for the Halloween ZEDs
+  # ET_TwistedChristmas -- for the Christmas ZEDs
+  [[ -z "$KF_SPECIMEN_EVENT_TYPE" ]] && export KF_SPECIMEN_EVENT_TYPE=ET_None
+
   # Server Message Of The Day
   [[ -z "$KF_MOTD" ]] && export KF_MOTD=Welcome To My Server
 
@@ -69,6 +77,7 @@ function load_config() {
   sed -i "s/MessageOfTheDay=.*/MessageOfTheDay=$KF_MOTD/g" KillingFloor.ini
   sed -i "s,RedirectToURL=.*,RedirectToURL=$KF_REDIRECT,g" KillingFloor.ini
   sed -i "s/MaxSpectators=.*/MaxSpectators=$KF_SPECTATORS/g" KillingFloor.ini
+  sed -i "s/SpecialEventType=.*/SpecialEventType=$KF_SPECIMEN_EVENT_TYPE/g" KillingFloor.ini
   ## grep
   grep -q "KFGameLength=" KillingFloor.ini && sed -i "s/KFGameLength=.*/KFGameLength=$KF_GAME_LENGTH/g" KillingFloor.ini || echo -e "[KFMod.KFGameType]\nKFGameLength=$KF_GAME_LENGTH" >> KillingFloor.ini
   grep -q "GameDifficulty=" KillingFloor.ini && sed -i "s/GameDifficulty=.*/GameDifficulty=$KF_DIFFICULTY/g" KillingFloor.ini || sed -i "/VotingHandlerType=xVoting.xVotingHandler/a GameDifficulty=$KF_DIFFICULTY" KillingFloor.ini
@@ -86,6 +95,6 @@ function launch() {
   cmd+="$KF_MAP.rom?game=KFmod.KFGameType?"
   [[ -z "$KF_MUTATORS" ]] || cmd+="mutator=$KF_MUTATORS?"
   cmd+="VACSecured=true?MaxPlayers=6 -nohomedir"
-  echo "Running command: $cmd" > $0-cmd.log
+  echo "## Server launched with command: $cmd ##" > $0-cmd.log
   exec $cmd
 }
