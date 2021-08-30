@@ -8,4 +8,5 @@ KF_ADMIN_PASS=(pass)
 KF_ADMIN_EMAIL=(email)
 KF_MOTD=Welcome!
 KF_REDIRECT=(redirect)
+KF_SPECTATORS=6
 KF_MUTATORS=(mutators, seperated by commas and NO spaces)
