@@ -4,23 +4,46 @@
 
 [![](https://cache.gametracker.com/server_info/nn.h4ck.me:7707/b_560_95_1.png)](https://www.gametracker.com/server_info/nn.h4ck.me:7707/)
 
-- [killing-floor1-docker](#killing-floor1-docker)
-  - [READ BEFORE PROCEEDING](#read-before-proceeding)
+- [Killing Floor 1: Dockerized!](#killing-floor-1-dockerized)
+  - [Important Notes](#important-notes)
+    - [OSX 💻 Users](#osx--users)
+    - [Multi-Server 🌩 support](#multi-server--support)
   - [Docker Run Variables](#docker-run-variables)
   - [Build Command](#build-command)
   - [Run Command](#run-command)
   - [Useful docker commads](#useful-docker-commads)
 
-# killing-floor1-docker
+# Killing Floor 1: Dockerized!
 
-## READ BEFORE PROCEEDING
+## Important Notes
 
-OSX 💻 Users: If, for any reason, you are encountering "Operation not permitted" issues while running, make sure you do the following:
+### OSX 💻 Users 
+
+If, for any reason, you are encountering "Operation not permitted" issues while running, make sure you do the following:
 
 1. In your Docker settings, disable/uncheck `Use gRPC FUSE for file sharing` and hit Restart to Apply changes
 2. If the above doesn't solve your issue, go to your Machine Settings > Security & Privacy > Give `Full Disk Usage` to Docker.app (If this still doesn't work, give your terminal as well)
 
 This should fix this issue 👍
+
+____
+
+### Multi-Server 🌩 support
+
+In case you want to run more than 1 server (e.g. several containers), do not forget to change the exposed ports in the docker run command to match the following:
+
+```
+# Game Port
+KF_GAME_PORT=
+# Query Port
+KF_QUERY_PORT=
+# WebAdmin Port
+KF_WEBADMIN_PORT=
+```
+
+Also, keep in mind to update the folder you are using for the mounted volume on your local
+
+>-v (your server folder):/home/steam/servers/kf
 
 ## Docker Run Variables
 
@@ -36,6 +59,8 @@ STEAM_CODE=
 ```
 
 Use these vars to tweak the server settings when a container starts
+
+>NOTE: Removing variables or not putting any values will automatically use the default values, as found [HERE](https://github.com/Vel-San/killing-floor-docker/blob/1ac09a4d55e7369442bb75831d70413d36e9ced9/scripts/kf1_functions.sh#L24)
 
 ```bash
 # Map Name
@@ -69,6 +94,13 @@ KF_SPECTATORS=
 KF_SPECIMEN_EVENT_TYPE=
 # List of your mutators; seperated by commas and NO spaces -- It is recommended to use MutLoader to load your muts
 KF_MUTATORS=
+# DO. NOT. TOUCH! Port variables if you don't know what you're doing!
+# Game Port
+KF_GAME_PORT=
+# Query Port
+KF_QUERY_PORT=
+# WebAdmin Port
+KF_WEBADMIN_PORT=
 ```
 
 ## Build Command
@@ -110,6 +142,9 @@ docker run -d --name kf1 \
         -e KF_SPECTATORS=6 \
         -e KF_SPECIMEN_EVENT_TYPE=ET_None \
         -e KF_MUTATORS=(mutators) \
+        -e KF_GAME_PORT=7707 \
+        -e KF_QUERY_PORT=7717 \
+        -e KF_WEBADMIN_PORT=8075
         kf1-docker
 ```
 
@@ -117,7 +152,7 @@ docker run -d --name kf1 \
   <summary>Copy/Paste (CLICK ME)</summary>
 
 ```bash
-docker run -d --name kf1 -p 0.0.0.0:7707:7707/udp -p 0.0.0.0:7708:7708/udp -p 0.0.0.0:7717:7717/udp -p 0.0.0.0:28852:28852/udp -p 0.0.0.0:28852:28852/tcp -p 0.0.0.0:8075:8075/tcp -p 0.0.0.0:20560:20560/udp -p 0.0.0.0:20560:20560/tcp -v (your server folder):/home/steam/servers/kf -e STEAM_USER=(user) -e STEAM_PASSWORD=(pass) -e STEAM_CODE=(code) -e KF_MAP=KF-BioticsLab -e KF_DIFFICULTY=4 -e KF_GAME_LENGTH=2 -e KF_GAME_PASS=(pass) -e KF_SERVER_NAME='Killing Floor Server' -e KF_ADMIN_NAME=(name) -e KF_ADMIN_PASS=(pass) -e KF_ADMIN_EMAIL=(email) -e KF_MOTD=Welcome -e KF_REDIRECT=(redirect) -e KF_SPECTATORS=6 -e KF_SPECIMEN_EVENT_TYPE=ET_None -e KF_MUTATORS=(mutators) kf1-docker
+docker run -d --name kf1 -p 0.0.0.0:7707:7707/udp -p 0.0.0.0:7708:7708/udp -p 0.0.0.0:7717:7717/udp -p 0.0.0.0:28852:28852/udp -p 0.0.0.0:28852:28852/tcp -p 0.0.0.0:8075:8075/tcp -p 0.0.0.0:20560:20560/udp -p 0.0.0.0:20560:20560/tcp -v (your server folder):/home/steam/servers/kf -e STEAM_USER=(user) -e STEAM_PASSWORD=(pass) -e STEAM_CODE=(code) -e KF_MAP=KF-BioticsLab -e KF_DIFFICULTY=4 -e KF_GAME_LENGTH=2 -e KF_GAME_PASS=(pass) -e KF_SERVER_NAME='Killing Floor Server' -e KF_ADMIN_NAME=(name) -e KF_ADMIN_PASS=(pass) -e KF_ADMIN_EMAIL=(email) -e KF_MOTD=Welcome -e KF_REDIRECT=(redirect) -e KF_SPECTATORS=6 -e KF_SPECIMEN_EVENT_TYPE=ET_None -e KF_MUTATORS=(mutators) -e KF_GAME_PORT=7707 -e KF_QUERY_PORT=7717 -e KF_WEBADMIN_PORT=8075 kf1-docker
 ```
 
 </details>
@@ -155,3 +190,5 @@ docker run -d --name kf1 -p 0.0.0.0:7707:7707/udp -p 0.0.0.0:7708:7708/udp -p 0.
 
 - Track installation/server setup after docker run command
   - `docker logs --follow kf1-docker`
+- Stop & remove server container
+  - `docker stop $(docker ps -aq); docker rm -f Server_name_here`
