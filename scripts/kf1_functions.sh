@@ -16,6 +16,7 @@ function require_config() {
 function optimize_kf(){
   echo "#### Optimizing Settings ####"
   sed -i "s/ServerBehindNAT=False/ServerBehindNAT=True/g" KillingFloor.ini
+  sed -i "s/SendStats=False/SendStats=True/g" KillingFloor.ini
   sed -i "s/AllowDownloads=False/AllowDownloads=True/g" KillingFloor.ini
   sed -i "s/UseCompression=False/UseCompression=True/g" KillingFloor.ini
   sed -i "s/bEnabled=False/bEnabled=True/g" KillingFloor.ini
@@ -81,8 +82,11 @@ function load_config() {
   ## grep
   grep -q "KFGameLength=" KillingFloor.ini && sed -i "s/KFGameLength=.*/KFGameLength=$KF_GAME_LENGTH/g" KillingFloor.ini || echo -e "[KFMod.KFGameType]\nKFGameLength=$KF_GAME_LENGTH" >> KillingFloor.ini
   grep -q "GameDifficulty=" KillingFloor.ini && sed -i "s/GameDifficulty=.*/GameDifficulty=$KF_DIFFICULTY/g" KillingFloor.ini || sed -i "/VotingHandlerType=xVoting.xVotingHandler/a GameDifficulty=$KF_DIFFICULTY" KillingFloor.ini
+  ### grep optimizations
   grep -q "bVACSecured=True" KillingFloor.ini || sed -i "/VotingHandlerType=xVoting.xVotingHandler/a bVACSecured=True" KillingFloor.ini
   grep -q "bAdminCanPause=True" KillingFloor.ini || sed -i "/VotingHandlerType=xVoting.xVotingHandler/a bAdminCanPause=True" KillingFloor.ini
+  grep -q "bAllowBehindView=True" KillingFloor.ini || sed -i "/VotingHandlerType=xVoting.xVotingHandler/a bAllowBehindView=True" KillingFloor.ini
+  grep -q "bWeaponShouldViewShake=False" KillingFloor.ini || sed -i "/VotingHandlerType=xVoting.xVotingHandler/a bWeaponShouldViewShake=False" KillingFloor.ini
   ## conditional
   [[ -z "$KF_GAME_PASS" ]] || sed -i "s/GamePassword=.*/GamePassword=$KF_GAME_PASS/g" KillingFloor.ini
 }
