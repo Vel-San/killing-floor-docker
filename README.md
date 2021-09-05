@@ -33,11 +33,8 @@ ____
 In case you want to run more than 1 server (e.g. several containers), do not forget to change the exposed ports in the docker run command to match the following:
 
 ```
-# Game Port
 KF_GAME_PORT=
-# Query Port
 KF_QUERY_PORT=
-# WebAdmin Port
 KF_WEBADMIN_PORT=
 ```
 
