@@ -68,6 +68,15 @@ function load_config() {
   # Server redirectURL to download hosted mods from
   [[ -z "$KF_REDIRECT" ]] && export KF_REDIRECT=http://www.skillzservers.com/kf-redirect/
 
+  # Game Port
+  [[ -z "$KF_GAME_PORT" ]] && export KF_GAME_PORT=7707
+
+  # Query Port
+  [[ -z "$KF_QUERY_PORT" ]] && export KF_QUERY_PORT=7717
+
+  # WebAdmin Port
+  [[ -z "$KF_WEBADMIN_PORT" ]] && export KF_WEBADMIN_PORT=8075
+
   ## Edit KillingFloor.ini
   ############# BASIC REPLACEMENTS #############
   ## sed
@@ -79,14 +88,17 @@ function load_config() {
   sed -i "s,RedirectToURL=.*,RedirectToURL=$KF_REDIRECT,g" KillingFloor.ini
   sed -i "s/MaxSpectators=.*/MaxSpectators=$KF_SPECTATORS/g" KillingFloor.ini
   sed -i "s/SpecialEventType=.*/SpecialEventType=$KF_SPECIMEN_EVENT_TYPE/g" KillingFloor.ini
+  sed -i "s/Port=.*/Port=$KF_GAME_PORT/g" KillingFloor.ini
+  sed -i "s/OldQueryPortNumber=.*/OldQueryPortNumber=$KF_QUERY_PORT/g" KillingFloor.ini
+  sed -i "s/ListenPort=.*/ListenPort=$KF_WEBADMIN_PORT/g" KillingFloor.ini
   ## grep
   grep -q "KFGameLength=" KillingFloor.ini && sed -i "s/KFGameLength=.*/KFGameLength=$KF_GAME_LENGTH/g" KillingFloor.ini || echo -e "[KFMod.KFGameType]\nKFGameLength=$KF_GAME_LENGTH" >> KillingFloor.ini
-  grep -q "GameDifficulty=" KillingFloor.ini && sed -i "s/GameDifficulty=.*/GameDifficulty=$KF_DIFFICULTY/g" KillingFloor.ini || sed -i "/VotingHandlerType=xVoting.xVotingHandler/a GameDifficulty=$KF_DIFFICULTY" KillingFloor.ini
+  grep -q "GameDifficulty=" KillingFloor.ini && sed -i "s/GameDifficulty=.*/GameDifficulty=$KF_DIFFICULTY/g" KillingFloor.ini || sed -i "/AccessControlClass=Engine.AccessControl/a GameDifficulty=$KF_DIFFICULTY" KillingFloor.ini
   ### grep optimizations
-  grep -q "bVACSecured=True" KillingFloor.ini || sed -i "/VotingHandlerType=xVoting.xVotingHandler/a bVACSecured=True" KillingFloor.ini
-  grep -q "bAdminCanPause=True" KillingFloor.ini || sed -i "/VotingHandlerType=xVoting.xVotingHandler/a bAdminCanPause=True" KillingFloor.ini
-  grep -q "bAllowBehindView=True" KillingFloor.ini || sed -i "/VotingHandlerType=xVoting.xVotingHandler/a bAllowBehindView=True" KillingFloor.ini
-  grep -q "bWeaponShouldViewShake=False" KillingFloor.ini || sed -i "/VotingHandlerType=xVoting.xVotingHandler/a bWeaponShouldViewShake=False" KillingFloor.ini
+  grep -q "bVACSecured=True" KillingFloor.ini || sed -i "/AccessControlClass=Engine.AccessControl/a bVACSecured=True" KillingFloor.ini
+  grep -q "bAdminCanPause=True" KillingFloor.ini || sed -i "/AccessControlClass=Engine.AccessControl/a bAdminCanPause=True" KillingFloor.ini
+  grep -q "bAllowBehindView=True" KillingFloor.ini || sed -i "/AccessControlClass=Engine.AccessControl/a bAllowBehindView=True" KillingFloor.ini
+  grep -q "bWeaponShouldViewShake=False" KillingFloor.ini || sed -i "/AccessControlClass=Engine.AccessControl/a bWeaponShouldViewShake=False" KillingFloor.ini
   ## conditional
   [[ -z "$KF_GAME_PASS" ]] || sed -i "s/GamePassword=.*/GamePassword=$KF_GAME_PASS/g" KillingFloor.ini
 }
