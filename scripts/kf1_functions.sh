@@ -88,7 +88,7 @@ function load_config() {
   sed -i "s,RedirectToURL=.*,RedirectToURL=$KF_REDIRECT,g" KillingFloor.ini
   sed -i "s/MaxSpectators=.*/MaxSpectators=$KF_SPECTATORS/g" KillingFloor.ini
   sed -i "s/SpecialEventType=.*/SpecialEventType=$KF_SPECIMEN_EVENT_TYPE/g" KillingFloor.ini
-  sed -i "s/Port=.*/Port=$KF_GAME_PORT/g" KillingFloor.ini
+  sed -i "s/Port=7707/Port=$KF_GAME_PORT/g" KillingFloor.ini
   sed -i "s/OldQueryPortNumber=.*/OldQueryPortNumber=$KF_QUERY_PORT/g" KillingFloor.ini
   sed -i "s/ListenPort=.*/ListenPort=$KF_WEBADMIN_PORT/g" KillingFloor.ini
   ## grep
