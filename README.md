@@ -57,7 +57,7 @@ STEAM_CODE=
 
 Use these vars to tweak the server settings when a container starts
 
->NOTE: Removing variables or not putting any values will automatically use the default values, as found [HERE](https://github.com/Vel-San/killing-floor-docker/blob/1ac09a4d55e7369442bb75831d70413d36e9ced9/scripts/kf1_functions.sh#L24)
+>NOTE: Removing variables or not putting any values will automatically use the default values, as found [HERE](https://github.com/Vel-San/killing-floor-docker/blob/master/scripts/kf1_functions.sh#L25)
 
 ```bash
 # Map Name
