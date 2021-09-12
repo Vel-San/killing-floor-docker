@@ -1,0 +1,45 @@
+version: '2'
+
+services:
+    Server1:
+        container_name: KF1
+        image: vel7an/kf1-docker:latest
+        restart: always
+#         network_mode: "host" # Testing Purposes
+        ports:
+            - 0.0.0.0:7707:7707/udp
+            - 0.0.0.0:7717:7717/udp
+            - 0.0.0.0:8075:8075/tcp
+            - 0.0.0.0:7708:7708/udp
+            - 0.0.0.0:28852:28852/udp
+            - 0.0.0.0:28852:28852/tcp
+            - 0.0.0.0:20560:20560/udp
+            - 0.0.0.0:20560:20560/tcp
+        environment:
+            - KF_MAP=KF-BioticsLab
+            - KF_DIFFICULTY=7
+            - KF_GAME_LENGTH=2
+            - KF_GAME_PASS=
+            - KF_SERVER_NAME=Killing Floor Server - Dockerized!
+            - KF_ADMIN_NAME=<adminame>
+            - KF_ADMIN_PASS=<admin_pass>
+            - KF_ADMIN_EMAIL=<admin_email>
+            - KF_MOTD=Welcome to our server!
+            - KF_REDIRECT=
+            - KF_MUTATORS=
+            - KF_SPECTATORS=6
+            - KF_SPECIMEN_EVENT_TYPE=ET_None
+            - KF_GAME_PORT=7707
+            - KF_QUERY_PORT=7717
+            - KF_WEBADMIN_PORT=8075
+            - STEAM_USER=<user>
+            - STEAM_PASSWORD=<secret>
+            - STEAM_CODE=<2FA_Code>
+        volumes:
+            - /home/user/kf-stuff/server-volume:/home/steam/servers/kf
+        logging:
+            # limit logs retained on host to 25MB
+            driver: "json-file"
+            options:
+                max-size: "500k"
+                max-file: "50"
