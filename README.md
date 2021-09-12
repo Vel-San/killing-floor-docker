@@ -42,6 +42,20 @@ Also, keep in mind to update the folder you are using for the mounted volume on 
 
 >-v (your server folder):/home/steam/servers/kf
 
+And MOST IMPORTANT:
+
+> DO NOT Forget to change your steam ports to "Ranged" ports e.g.
+>
+> 20560:20569 (udp+tcp)
+>
+> 28852:28859 (udp+tcp)
+>
+> 7707:7710 (udp) # This change is for the 7708 port, in case you're doing only 2x servers
+>
+> If you're running more than 2x servers, you need to keep incrementing your ports accordingly! +2 is optimal for all ports
+
+You can run your containers using `--net=host`, or simply change the ports from the run command.
+
 ## Docker Run Variables
 
 When running a container for the first time, you will need to supply a steam login to install the server
