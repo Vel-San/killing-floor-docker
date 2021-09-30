@@ -199,6 +199,12 @@ docker run -d --name kf1 -p 0.0.0.0:7707:7707/udp -p 0.0.0.0:7708:7708/udp -p 0.
 
 </details>
 
+## How to update the server
+
+Sometimes, you need to update SteamLibs or in general the server if needed. 
+
+To do so, all you have to do is delete `Core.u` from your Volume/System/ and simply run the server as you usually do. If you use 2FA/Steam Guard, make sure to provide the proper code before running.
+
 ## Useful docker commads
 
 - Track installation/server setup after docker run command
