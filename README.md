@@ -13,6 +13,7 @@
   - [Docker Run Variables](#docker-run-variables)
   - [Build Command](#build-command)
   - [Run Command](#run-command)
+  - [Update the server](#update-the-server)
   - [Useful docker commads](#useful-docker-commads)
 
 # Killing Floor 1: Dockerized!
@@ -199,7 +200,7 @@ docker run -d --name kf1 -p 0.0.0.0:7707:7707/udp -p 0.0.0.0:7708:7708/udp -p 0.
 
 </details>
 
-## How to update the server
+## Update the server
 
 Sometimes, you need to update SteamLibs or in general the server if needed. 
 
