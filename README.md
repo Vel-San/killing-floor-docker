@@ -4,8 +4,6 @@
 
 [![](https://cache.gametracker.com/server_info/nn.h4ck.me:7707/b_350_20_692108_381007_ffffff_000000.png)](https://www.gametracker.com/server_info/nn.h4ck.me:7707/)
 
-[![](https://cache.gametracker.com/server_info/nn.h4ck.me:7709/b_350_20_692108_381007_ffffff_000000.png)](https://www.gametracker.com/server_info/nn.h4ck.me:7709/)
-
 - [Killing Floor 1: Dockerized!](#killing-floor-1-dockerized)
   - [Important Notes](#important-notes)
     - [OSX 💻 Users](#osx--users)
