@@ -1,11 +1,9 @@
-version: "3.9"
-
 services:
     Server1:
         container_name: KF1
         image: vel7an/kf1-docker:latest
         restart: always
-#         network_mode: "host" # Testing Purposes
+        # network_mode: "host" # Testing Purposes
         ports:
             - 0.0.0.0:7707:7707/udp
             - 0.0.0.0:7717:7717/udp
