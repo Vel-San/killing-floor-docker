@@ -2,8 +2,6 @@
 
 [![CI: Build & Deploy to DockerHub](https://github.com/Vel-San/killing-floor-docker/actions/workflows/build_deploy.yml/badge.svg?branch=master)](https://github.com/Vel-San/killing-floor-docker/actions/workflows/build_deploy.yml) [![CI: Container Scanner](https://github.com/Vel-San/killing-floor-docker/actions/workflows/trivy-analysis.yml/badge.svg)](https://github.com/Vel-San/killing-floor-docker/actions/workflows/trivy-analysis.yml)
 
-[![](https://cache.gametracker.com/server_info/nn.h4ck.me:7707/b_350_20_692108_381007_ffffff_000000.png)](https://www.gametracker.com/server_info/nn.h4ck.me:7707/)
-
 - [Killing Floor 1: Dockerized!](#killing-floor-1-dockerized)
   - [Important Notes](#important-notes)
     - [OSX 💻 Users](#osx--users)
